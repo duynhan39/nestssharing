@@ -6,13 +6,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useEffect, useState } from 'react';
 
 // import { RegistrationScreen } from '../'
-import {HomeTab} from '../HomeTab/HomeTab'  //HomeScreenTabs/HomeTab';
-import {ReferTab} from '../ReferTab/ReferTab'
+import {RentalTab} from '../Rental/RentalTab'
+import {SettingsTab} from '../Settings/SettingsTab'
 
 const Tab = createBottomTabNavigator();
 
 export default function HomeScreen(props) {
-    // console.log(HomeTab)
+    // console.log(RentalTab)
 
     const [user, setUser] = useState(null)
     return (
@@ -25,9 +25,11 @@ export default function HomeScreen(props) {
                 headerMode:"screen"
             }}>
             <Tab.Screen name="Rental">
-                {props => <HomeTab {...props} />}
+                {props => <RentalTab {...props} />}
             </Tab.Screen>
-            <Tab.Screen name="..." component={ReferTab} />
+            <Tab.Screen name="Settings">
+                {props => <SettingsTab {...props} />}
+            </Tab.Screen>
         </Tab.Navigator>
         // </NavigationContainer>
     );

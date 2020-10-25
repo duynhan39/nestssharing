@@ -16,7 +16,7 @@ import { Feather } from '@expo/vector-icons';
 import styles from './styles'
 
 
-export default function ReferralDetail(props) {
+export default function SettingDetail(props) {
 
   const {referral} = props
   

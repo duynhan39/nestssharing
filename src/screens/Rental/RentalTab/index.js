@@ -1,0 +1,1 @@
+export { default RentalTab } from './RentalTab'

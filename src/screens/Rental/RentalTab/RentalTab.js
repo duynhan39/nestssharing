@@ -57,7 +57,7 @@ function ListingContent({ navigation, route }) {
 }
 
 
-export default function HomeTab(props) {
+export default function RentalTab(props) {
 
 
   const listings = [
