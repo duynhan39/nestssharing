@@ -1,0 +1,1 @@
+export { default as ReferralDetail } from './ReferralDetail'
