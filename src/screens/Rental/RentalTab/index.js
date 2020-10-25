@@ -1,1 +1,1 @@
-export { default RentalTab } from './RentalTab'
+export { default as RentalTab } from './RentalTab'

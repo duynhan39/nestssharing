@@ -17,6 +17,42 @@ import { SettingDetail } from '../SettingDetail'
 
 import styles from './styles'
 
+function ListingContent({ navigation, route }) {
+  const {listings} = route.params
+
+  const onRowPressed = (listing) => {
+    navigation.navigate('Details', {listing: listing})
+  }
+
+  return (
+
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <Text style={[styles.headerText]}>Setting</Text>
+      </View>
+
+      {/* <ScrollView style={styles.scrollView}>
+        <View style={styles.insideContainer}>
+          <Text style={[styles.defaultMargin, styles.text]}>Filter</Text>
+          <Text style={[styles.defaultMargin, styles.text]}>{listings.length} items found</Text>
+          <View>
+          {
+            listings.map((listing, _) => (
+              <TouchableOpacity
+                key = {listing.id}
+                // style={styles.button}
+                onPress={() => onRowPressed(listing)}>
+            
+                <ListingRowView listing={listing}/>
+              </TouchableOpacity>
+            ))
+          }
+          </View>
+        </View>
+      </ScrollView> */}
+    </SafeAreaView>
+  );
+}
 
 export default function SettingsTab(props) {
 
@@ -40,7 +76,7 @@ export default function SettingsTab(props) {
       }}>
     
       <Stack.Screen name="Master" initialParams={{referrals:referrals}}>
-        {props => <ReferralListingContent {...props}  />}
+        {props => <ListingContent {...props}  />}
       </Stack.Screen>
       
 
