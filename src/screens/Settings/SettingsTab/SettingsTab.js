@@ -18,38 +18,47 @@ import { ListingRowView } from '../../../components/ListingRowView'
 
 import styles from './styles'
 
-function ListingContent({ navigation, route }) {
+function SettingsListContent({ navigation, route }) {
   const {listings} = route.params
-
-  const onRowPressed = (listing) => {
-    navigation.navigate('Details', {listing: listing})
-  }
 
   return (
 
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={[styles.headerText]}>Setting</Text>
+        <Text style={styles.headerText}>Your referrals</Text>
       </View>
 
       <ScrollView style={styles.scrollView}>
         <View style={styles.insideContainer}>
           <View>
           {
-            listings.map((listing, _) => (
-              <TouchableOpacity
-                key = {listing.id}
-                // style={styles.button}
-                onPress={() => onRowPressed(listing)}>
-            
-                <ListingRowView listing={listing}/>
-              </TouchableOpacity>
-            ))
+            listings.map((listing, _) => 
+            // <Text>{listing.name}</Text>
+
+
+              <SettingRow key = {listing.id} listing={listing} />
+  
+            )
           }
           </View>
         </View>
       </ScrollView>
+
+
     </SafeAreaView>
+  );
+}
+
+function SettingRow(props) {
+  const listing = props.listing
+
+  return(
+    <View  style = {[styles.roundedCornerBox, styles.defaultMargin, styles.vstack]}>
+      <Text> </Text>
+      <Text>{listing.name}</Text>      
+      <Text> </Text>
+    </View>
+
   );
 }
 
@@ -60,7 +69,7 @@ export default function SettingsTab(props) {
     {'id':1, 'name': 'User profile'},
     {'id':2, 'name': 'Interests'},
     {'id':3, 'name': 'History'},
-    {'id':4, 'name': 'Sign out'},
+    {'id':4, 'name': 'Sign out', 'color':'red'},
 
   ]
 
@@ -75,7 +84,7 @@ export default function SettingsTab(props) {
       }}>
     
       <Stack.Screen name="Master" initialParams={{listings:settings}}>
-        {props => <ListingContent {...props}  />}
+        {props => <SettingsListContent {...props}  />}
       </Stack.Screen>
       
 
