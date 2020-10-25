@@ -14,6 +14,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Modal, { SlideAnimation, ModalFooter, ModalButton, ModalContent } from 'react-native-modals';
 
 import { SettingDetail } from '../SettingDetail'
+import { ListingRowView } from '../../../components/ListingRowView'
 
 import styles from './styles'
 
@@ -31,10 +32,8 @@ function ListingContent({ navigation, route }) {
         <Text style={[styles.headerText]}>Setting</Text>
       </View>
 
-      {/* <ScrollView style={styles.scrollView}>
+      <ScrollView style={styles.scrollView}>
         <View style={styles.insideContainer}>
-          <Text style={[styles.defaultMargin, styles.text]}>Filter</Text>
-          <Text style={[styles.defaultMargin, styles.text]}>{listings.length} items found</Text>
           <View>
           {
             listings.map((listing, _) => (
@@ -49,7 +48,7 @@ function ListingContent({ navigation, route }) {
           }
           </View>
         </View>
-      </ScrollView> */}
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -57,12 +56,12 @@ function ListingContent({ navigation, route }) {
 export default function SettingsTab(props) {
 
 
-  const referrals = [
-    {'company': 'Uber', 'id':1, 'link':'uber.referral.user001'},
-    {'company': 'Lyft', 'id':2, 'link':'lyft.referral.user001'},
-    {'company': 'DoorDash', 'id':3, 'link':'dd.referral.user001'},
-    {'company': 'Instacart', 'id':4, 'link':'instc.referral.user001'},
-    {'company': 'Uber Eat', 'id':5, 'link':'uber.eat.referral.user001'},
+  const settings = [
+    {'id':1, 'name': 'User profile'},
+    {'id':2, 'name': 'Interests'},
+    {'id':3, 'name': 'History'},
+    {'id':4, 'name': 'Sign out'},
+
   ]
 
   const Stack = createStackNavigator();
@@ -75,7 +74,7 @@ export default function SettingsTab(props) {
         headerShown: false
       }}>
     
-      <Stack.Screen name="Master" initialParams={{referrals:referrals}}>
+      <Stack.Screen name="Master" initialParams={{listings:settings}}>
         {props => <ListingContent {...props}  />}
       </Stack.Screen>
       

@@ -18,9 +18,9 @@ import styles from './styles'
 
 export default function SettingDetail(props) {
 
-  const {referral} = props
+  const {setting} = props
   
-  if (!referral) {
+  if (!setting) {
     return (
       <View>
         <Text>NULL</Text>
@@ -28,26 +28,26 @@ export default function SettingDetail(props) {
     )
   }
 
-  const [referralLink, setReferralLink] = useState(referral.link)
+  // const [referralLink, setReferralLink] = useState(referral.link)
   
-  const onShare = async () => {
-    try {
-      const result = await Share.share({
-        message: referralLink,
-      });
-      if (result.action === Share.sharedAction) {
-        if (result.activityType) {
-          // shared with activity type of result.activityType
-        } else {
-          // shared
-        }
-      } else if (result.action === Share.dismissedAction) {
-        // dismissed
-      }
-    } catch (error) {
-      alert(error.message);
-    }
-  }
+  // const onShare = async () => {
+  //   try {
+  //     const result = await Share.share({
+  //       message: referralLink,
+  //     });
+  //     if (result.action === Share.sharedAction) {
+  //       if (result.activityType) {
+  //         // shared with activity type of result.activityType
+  //       } else {
+  //         // shared
+  //       }
+  //     } else if (result.action === Share.dismissedAction) {
+  //       // dismissed
+  //     }
+  //   } catch (error) {
+  //     alert(error.message);
+  //   }
+  // }
 
 
 
@@ -56,8 +56,10 @@ export default function SettingDetail(props) {
     <View style={styles.container}>
 
 
-      <Text >{referral.company}</Text>
-      <Text>{referral.name}</Text>
+      <Text >{setting.name}</Text>
+
+
+      {/* <Text>{referral.name}</Text>
       <Text>Referral link</Text>
       <TextInput
         style={{ height: 40, borderColor: 'lightgray', borderWidth: 1, borderRadius: 5 }}
@@ -65,14 +67,14 @@ export default function SettingDetail(props) {
         value={referralLink}
         placeholder='example.com/referral'
       />
-      {/* <Feather name="share" size={24} color="black" style={styles.defaultMargin}/> */}
+      <Feather name="share" size={24} color="black" style={styles.defaultMargin}/>
       <TouchableOpacity
         style={styles.rowMargin}
         onPress={() => onShare()}>
 
         <Text >Share</Text>
 
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
 
 
