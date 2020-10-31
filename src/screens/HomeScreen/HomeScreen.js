@@ -15,29 +15,29 @@ export default function HomeScreen(props) {
     // console.log(ListingMaster)
 
     const books = [
-        {'name': 'The Fault in our Stars', 'price': '$15', 'id': 1, 'description': ''},
-        {'name': 'Pokemon', 'price': '$10', 'id': 2, 'description': ''},
-        {'name': 'Naruto', 'price': '$20', 'id': 3, 'description': ''},
-        {'name': 'Ender\'s Game', 'price': '$25', 'id': 4, 'description': ''},
-        {'name': 'Lean Startup', 'price': '$30', 'id': 5, 'description': ''},
-        {'name': 'The Alchemist', 'price': '$5', 'id': 6, 'description': ''},
-        {'name': 'Rich dad, poor dad', 'price': '$20', 'id': 7, 'description': ''},
-        {'name': 'Make your bed', 'price': '$9.99', 'id': 8, 'description': ''},
-        {'name': 'Extreme Ownership', 'price': '$10', 'id': 9, 'description': ''},
+        {'name': 'The Fault in our Stars', 'price': '$15', 'description': ''},
+        {'name': 'Pokemon', 'price': '$10', 'description': ''},
+        {'name': 'Naruto', 'price': '$20', 'description': ''},
+        {'name': 'Ender\'s Game', 'price': '$25', 'description': ''},
+        {'name': 'Lean Startup', 'price': '$30', 'description': ''},
+        {'name': 'The Alchemist', 'price': '$5', 'description': ''},
+        {'name': 'Rich dad, poor dad', 'price': '$20', 'description': ''},
+        {'name': 'Make your bed', 'price': '$9.99', 'description': ''},
+        {'name': 'Extreme Ownership', 'price': '$10', 'description': ''},
     ]
 
     const tools = [
-        {'name': 'Chainsaw', 'price': '$55', 'id': 1, 'description': ''},
-        {'name': 'Electric drill', 'price': '$15', 'id': 2, 'description': ''},
-        {'name': 'Lawn mower', 'price': '$7', 'id': 3, 'description': ''},
+        {'name': 'Chainsaw', 'price': '$55', 'description': ''},
+        {'name': 'Electric drill', 'price': '$15', 'description': ''},
+        {'name': 'Lawn mower', 'price': '$7', 'description': ''},
     ]
 
     const skills = [
-        {'name': 'Calculus I, II & III', 'price': '$20/per class', 'id': 1, 'description': ''},
-        {'name': 'Physics', 'price': '$25/per class', 'id': 2, 'description': ''},
-        {'name': 'Chem 118', 'price': '$15/per class', 'id': 3, 'description': ''},
-        {'name': 'Arabic for beginner', 'price': '$15/per class', 'id': 4, 'description': ''},
-        {'name': 'Beginner Guitar', 'price': '$5/per class', 'id': 5, 'description': ''},
+        {'name': 'Calculus I, II & III', 'price': '$20/per class', 'description': ''},
+        {'name': 'Physics', 'price': '$25/per class', 'description': ''},
+        {'name': 'Chem 118', 'price': '$15/per class', 'description': ''},
+        {'name': 'Arabic for beginner', 'price': '$15/per class', 'description': ''},
+        {'name': 'Beginner Guitar', 'price': '$5/per class', 'description': ''},
     ]
 
     const [user, setUser] = useState(null)

@@ -21,8 +21,8 @@ import { ListingDetail } from '../ListingDetail'
 
 
 function ListingContent({ navigation, route }) {
-  const {listings} = route.params
-
+  const {data} = route.params
+  const listings = data.sort((a, b) => (a.name > b.name) ? 1 : -1 )
   const [search, updateSearch] = useState('')
 
   const onRowPressed = (listing) => {
@@ -83,7 +83,7 @@ export default function ListingMaster(props) {
     }}
     >
     
-      <Stack.Screen name="Master" initialParams={{listings:data}}>
+      <Stack.Screen name="Master" initialParams={{data:data}}>
         {props => <ListingContent {...props}  />}
       </Stack.Screen>
       
