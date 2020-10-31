@@ -51,7 +51,7 @@ function ListingContent({ navigation, route }) {
           {
             listings.map((listing, _) => (
               <TouchableOpacity
-                key = {listing.id}
+                key = {listings.findIndex((e) => e==listing)}
                 // style={styles.button}
                 onPress={() => onRowPressed(listing)}>
             
