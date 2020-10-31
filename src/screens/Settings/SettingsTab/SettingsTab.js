@@ -55,7 +55,9 @@ function SettingRow(props) {
   return(
     <View  style = {[styles.roundedCornerBox, styles.defaultMargin, styles.vstack]}>
       <Text> </Text>
-      <Text>{listing.name}</Text>      
+
+      <Text style={{color:listing.color, fontWeight:listing.fontWeight }}>{listing.name}</Text>      
+     
       <Text> </Text>
     </View>
 
@@ -69,7 +71,7 @@ export default function SettingsTab(props) {
     {'id':1, 'name': 'User profile'},
     {'id':2, 'name': 'Interests'},
     {'id':3, 'name': 'History'},
-    {'id':4, 'name': 'Sign out', 'color':'red'},
+    {'id':4, 'name': 'Sign out', 'color':'red', 'fontWeight':'bold',},
 
   ]
 
