@@ -69,18 +69,7 @@ function ListingContent({ navigation, route }) {
 
 export default function ListingMaster(props) {
 
-
-  const data = [
-    {'name': 'The Fault in our Stars', 'price': '$15', 'id': 1, 'description': ''},
-    {'name': 'Pokemon', 'price': '$10', 'id': 2, 'description': ''},
-    {'name': 'Naruto', 'price': '$20', 'id': 3, 'description': ''},
-    {'name': 'Ender\'s Game', 'price': '$25', 'id': 4, 'description': ''},
-    {'name': 'Lean Startup', 'price': '$30', 'id': 5, 'description': ''},
-    {'name': 'The Alchemist', 'price': '$5', 'id': 6, 'description': ''},
-    {'name': 'Rich dad, poor dad', 'price': '$20', 'id': 7, 'description': ''},
-    {'name': 'Make your bed', 'price': '$9.99', 'id': 8, 'description': ''},
-    {'name': 'Extreme Ownership', 'price': '$10', 'id': 9, 'description': ''},
-  ]
+  const data = props.data
 
   const Stack = createStackNavigator();
 
