@@ -6,13 +6,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useEffect, useState } from 'react';
 
 // import { RegistrationScreen } from '../'
-import {RentalTab} from '../Rental/RentalTab'
+import {ListingMaster} from '../Listing/ListingMaster'
 import {SettingsTab} from '../Settings/SettingsTab'
 
 const Tab = createBottomTabNavigator();
 
 export default function HomeScreen(props) {
-    // console.log(RentalTab)
+    // console.log(ListingMaster)
 
     const [user, setUser] = useState(null)
     return (
@@ -24,8 +24,8 @@ export default function HomeScreen(props) {
                 header: null,
                 headerMode:"screen"
             }}>
-            <Tab.Screen name="Rental">
-                {props => <RentalTab {...props} />}
+            <Tab.Screen name="Listing">
+                {props => <ListingMaster {...props} />}
             </Tab.Screen>
             <Tab.Screen name="Settings">
                 {props => <SettingsTab {...props} />}

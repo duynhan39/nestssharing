@@ -30,7 +30,7 @@ function ListingContent({ navigation, route }) {
 
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={[styles.headerText]}>Rental</Text>
+        <Text style={[styles.headerText]}>Listing</Text>
       </View>
 
       <ScrollView style={styles.scrollView}>
@@ -57,7 +57,7 @@ function ListingContent({ navigation, route }) {
 }
 
 
-export default function RentalTab(props) {
+export default function ListingMaster(props) {
 
 
   const listings = [
