@@ -11,15 +11,20 @@ export default StyleSheet.create({
         paddingTop: 5,
     },
     header: {
-        padding: 10,
-        paddingTop: 20,
-        paddingBottom: 20,
+        padding: 5,
+        paddingTop: 0,
+        paddingBottom: 5,
         justifyContent: "center",
     },
     headerText: {
         color: 'white',
         fontWeight: 'bold',
         fontSize: 35,
+    },
+    headlineText: {
+        fontWeight: 'bold',
+        fontSize: 20,
+        color: 'black',
     },
     scrollView: {
         alignSelf: 'stretch',

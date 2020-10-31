@@ -9,6 +9,7 @@ import { Text,
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import { SearchBar } from 'react-native-elements';
 
 // import { SearchBar } from 'react-native-elements'
 
@@ -22,6 +23,8 @@ import { ListingDetail } from '../ListingDetail'
 function ListingContent({ navigation, route }) {
   const {listings} = route.params
 
+  const [search, updateSearch] = useState('')
+
   const onRowPressed = (listing) => {
     navigation.navigate('Details', {listing: listing})
   }
@@ -30,13 +33,20 @@ function ListingContent({ navigation, route }) {
 
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={[styles.headerText]}>Listing</Text>
+        {/* <Text style={[styles.headerText]}>Listing</Text> */}
+        <SearchBar
+          placeholder="What are you looking for?"
+          onChangeText={updateSearch}
+          containerStyle={{backgroundColor: 'transparent', borderTopWidth:0, borderBottomWidth:0}}
+          inputContainerStyle={{backgroundColor: 'white'}}
+          value={search}
+        />
       </View>
 
       <ScrollView style={styles.scrollView}>
         <View style={styles.insideContainer}>
-          <Text style={[styles.defaultMargin, styles.text]}>Filter</Text>
-          <Text style={[styles.defaultMargin, styles.text]}>{listings.length} items found</Text>
+          <Text style={[styles.defaultMargin, styles.text, styles.headlineText]}>Today's pick</Text>
+          {/* <Text style={[styles.defaultMargin, styles.text]}>{listings.length} items found</Text> */}
           <View>
           {
             listings.map((listing, _) => (
@@ -60,7 +70,7 @@ function ListingContent({ navigation, route }) {
 export default function ListingMaster(props) {
 
 
-  const listings = [
+  const data = [
     {'name': 'The Fault in our Stars', 'price': '$15', 'id': 1, 'description': ''},
     {'name': 'Pokemon', 'price': '$10', 'id': 2, 'description': ''},
     {'name': 'Naruto', 'price': '$20', 'id': 3, 'description': ''},
@@ -84,7 +94,7 @@ export default function ListingMaster(props) {
     }}
     >
     
-      <Stack.Screen name="Master" initialParams={{listings:listings}}>
+      <Stack.Screen name="Master" initialParams={{listings:data}}>
         {props => <ListingContent {...props}  />}
       </Stack.Screen>
       
