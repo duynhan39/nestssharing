@@ -2,32 +2,65 @@ import React, {useEffect, useState} from 'react'
 import { Text, 
           View, 
           StyleSheet, 
-          ScrollView, 
+          FlatList, 
           SafeAreaView, 
           TouchableOpacity } from 'react-native'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
 import { SearchBar } from 'react-native-elements';
+
 
 // import { SearchBar } from 'react-native-elements'
 
 import styles from './styles'
 
-import { ListingRowView } from '../../../components/ListingRowView'
 import { ListingDetail } from '../ListingDetail'
+
+import { ListingRowView } from '../../../components/ListingRowView'
+import { Filter } from '../../../components/Filter'
+
 //'../../../components/ListingDetail'
 
+function Header() {
+  return (
+    <View>
+      <Filter/>
+      <Text style={[styles.defaultMargin, styles.text, styles.headlineText]}>Today's pick</Text>
+    </View>
+  );
+}
+
+function ListItemDisplay(props) {
+  const item = props.item
+  const onPress = props.onPress
+  if (item.name == ' header') {
+    return <Header/>;
+  }
+  return (
+    <View>  
+      <TouchableOpacity
+      onPress={() => onPress(item)}>
+      <ListingRowView listing={item}/>
+      </TouchableOpacity>
+    </View>
+  );
+}
 
 function ListingContent({ navigation, route }) {
   const {data} = route.params
-  const listings = data.sort((a, b) => (a.name > b.name) ? 1 : -1 )
+  var listings = [{'id': 'header', 'name': ' header'}]
+  listings.concat(data.sort((a, b) => (a.name > b.name) ? 1 : -1 ))
+
   const [search, updateSearch] = useState('')
 
   const onRowPressed = (listing) => {
     navigation.navigate('Details', {listing: listing})
   }
+
+  const renderItem = ({ item }) => (
+    <ListItemDisplay item={item} onPress={onRowPressed} />
+  );
 
   return (
 
@@ -43,25 +76,17 @@ function ListingContent({ navigation, route }) {
         />
       </View>
 
-      <ScrollView style={styles.scrollView}>
-        <View style={styles.insideContainer}>
-          <Text style={[styles.defaultMargin, styles.text, styles.headlineText]}>Today's pick</Text>
-          {/* <Text style={[styles.defaultMargin, styles.text]}>{listings.length} items found</Text> */}
-          <View>
-          {
-            listings.map((listing, _) => (
-              <TouchableOpacity
-                key = {listings.findIndex((e) => e==listing)}
-                // style={styles.button}
-                onPress={() => onRowPressed(listing)}>
-            
-                <ListingRowView listing={listing}/>
-              </TouchableOpacity>
-            ))
-          }
-          </View>
-        </View>
-      </ScrollView>
+
+      <View style={styles.insideContainer}>
+        <FlatList style={styles.scrollView}
+          data = {data}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+        />
+
+      </View> 
+
+     
     </SafeAreaView>
   );
 }
@@ -82,6 +107,7 @@ export default function ListingMaster(props) {
         headerShown: false
     }}
     >
+      
     
       <Stack.Screen name="Master" initialParams={{data:data}}>
         {props => <ListingContent {...props}  />}

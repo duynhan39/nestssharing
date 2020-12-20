@@ -15,15 +15,15 @@ export default function HomeScreen(props) {
     // console.log(ListingMaster)
 
     const books = [
-        {'name': 'The Fault in our Stars', 'price': '$15', 'description': ''},
-        {'name': 'Pokemon', 'price': '$10', 'description': ''},
-        {'name': 'Naruto', 'price': '$20', 'description': ''},
-        {'name': 'Ender\'s Game', 'price': '$25', 'description': ''},
-        {'name': 'Lean Startup', 'price': '$30', 'description': ''},
-        {'name': 'The Alchemist', 'price': '$5', 'description': ''},
-        {'name': 'Rich dad, poor dad', 'price': '$20', 'description': ''},
-        {'name': 'Make your bed', 'price': '$9.99', 'description': ''},
-        {'name': 'Extreme Ownership', 'price': '$10', 'description': ''},
+        {'id': '1', 'name': 'The Fault in our Stars', 'price': '$15', 'description': ''},
+        {'id': '2', 'name': 'Pokemon', 'price': '$10', 'description': ''},
+        {'id': '3', 'name': 'Naruto', 'price': '$20', 'description': ''},
+        {'id': '4', 'name': 'Ender\'s Game', 'price': '$25', 'description': ''},
+        {'id': '5', 'name': 'Lean Startup', 'price': '$30', 'description': ''},
+        {'id': '6', 'name': 'The Alchemist', 'price': '$5', 'description': ''},
+        {'id': '7', 'name': 'Rich dad, poor dad', 'price': '$20', 'description': ''},
+        {'id': '8', 'name': 'Make your bed', 'price': '$9.99', 'description': ''},
+        {'id': '9', 'name': 'Extreme Ownership', 'price': '$10', 'description': ''},
     ]
 
     const tools = [
@@ -51,15 +51,15 @@ export default function HomeScreen(props) {
                 headerMode:"screen"
             }}>
 
-            <Tab.Screen name="Books">
+            <Tab.Screen name="Listing">
                 {props => <ListingMaster {...props} data={books} />}
             </Tab.Screen>
-            <Tab.Screen name="Tools">
+            {/* <Tab.Screen name="Tools">
                 {props => <ListingMaster {...props} data={tools} />}
             </Tab.Screen>
             <Tab.Screen name="Skills">
                 {props => <ListingMaster {...props} data={skills} />}
-            </Tab.Screen>
+            </Tab.Screen> */}
             <Tab.Screen name="Settings">
                 {props => <SettingsTab {...props} />}
             </Tab.Screen>
