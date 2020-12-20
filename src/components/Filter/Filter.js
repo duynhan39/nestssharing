@@ -7,7 +7,9 @@ function FilterOptionBox(props) {
     const option = props.option
 
     return (
-        <Text>?</Text>
+        <View style={[styles.defaultMargin, styles.roundedCornerBox,]}>
+            <Text>{option.name}</Text>
+        </View>
     );
 
 
@@ -15,12 +17,7 @@ function FilterOptionBox(props) {
 
 export default function Filter(props) {
 
-    const options = [
-        {"id": "1", "name": "Books"},
-        {"id": "2", "name": "Tools"},
-        {"id": "3", "name": "Skills"},
-    ]
-  
+    const options = props.options
     const listing = props.listing
 
     const renderItem = ({item}) => (
@@ -28,12 +25,12 @@ export default function Filter(props) {
     );
   
     return (
-      <View>
-          <FlatList 
-            // horizontal={true}
-            data={options}
-            renderItem={renderItem}
-            keyExtractor={item => item.id}
+      <View style={styles.verticalPads}>
+            <FlatList 
+                horizontal={true}
+                data={options}
+                renderItem={renderItem}
+                keyExtractor={item => item.id}
             />
 
       </View>

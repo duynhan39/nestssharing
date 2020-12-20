@@ -23,9 +23,15 @@ import { Filter } from '../../../components/Filter'
 //'../../../components/ListingDetail'
 
 function Header() {
+  const options = [
+    {"id": "1", "name": "Books"},
+    {"id": "2", "name": "Tools"},
+    {"id": "3", "name": "Skills"},
+  ]
+
   return (
     <View>
-      <Filter/>
+      <Filter options={options}/>
       <Text style={[styles.defaultMargin, styles.text, styles.headlineText]}>Today's pick</Text>
     </View>
   );
@@ -49,8 +55,7 @@ function ListItemDisplay(props) {
 
 function ListingContent({ navigation, route }) {
   const {data} = route.params
-  var listings = [{'id': 'header', 'name': ' header'}]
-  listings.concat(data.sort((a, b) => (a.name > b.name) ? 1 : -1 ))
+  var listings = [{'id': 'header', 'name': ' header'}].concat(data.sort((a, b) => (a.name > b.name) ? 1 : -1 ))
 
   const [search, updateSearch] = useState('')
 
@@ -79,7 +84,7 @@ function ListingContent({ navigation, route }) {
 
       <View style={styles.insideContainer}>
         <FlatList style={styles.scrollView}
-          data = {data}
+          data = {listings}
           renderItem={renderItem}
           keyExtractor={item => item.id}
         />

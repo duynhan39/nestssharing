@@ -3,7 +3,37 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     container: {
         flex: 1,
-        // alignItems: 'center'
+        backgroundColor: 'rgb(33, 206, 153)',
+    },
+    verticalPads: {
+        paddingBottom: 5,
+        paddingTop: 15,
+    },
+    insideContainer: {
+        flex: 1,
+        paddingBottom: 5,
+        paddingTop: 5,
+    },
+    header: {
+        padding: 5,
+        paddingTop: 0,
+        paddingBottom: 5,
+        justifyContent: "center",
+    },
+    headerText: {
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 35,
+    },
+    headlineText: {
+        fontWeight: 'bold',
+        fontSize: 20,
+        color: 'black',
+    },
+    scrollView: {
+        alignSelf: 'stretch',
+        backgroundColor: 'white',
+        // backgroundColor: 'rgb(230, 230, 230)',
     },
     defaultMargin: {
         marginTop:5,
@@ -11,33 +41,15 @@ export default StyleSheet.create({
         marginRight: 10,
         marginLeft:10,
     },
-    vstack: {
-        flex: 1,
-        justifyContent: 'space-between',
-        flexDirection: 'column',
-    },
-    hstack: {
-        flex: 1,
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-    },
-    text: {
-        // marginTop:5,
-        // marginBottom:5,
-        paddingLeft: 5,
-        fontSize: 15,
-    },
     roundedCornerBox: {
+        // width: 120,
+        justifyContent: "center",
         flexDirection: 'row',
-        // justifyContent: 'space-between',
-        padding: 15,
-        // marginTop:5,
-        // marginBottom:5,
-
-        // borderColor: '#2a4944',
-        // borderWidth: 1,
-        backgroundColor: 'white',
-        borderRadius: 5,
+        padding: 5,
+        paddingLeft: 30,
+        paddingRight: 30,
+        borderRadius: 30,
+        backgroundColor: 'rgb(211, 211, 211)',
     },
     shadowbox: {
         shadowColor: "#000",
@@ -45,22 +57,13 @@ export default StyleSheet.create({
             width: 0,
             height: 3,
         },
-        shadowOpacity: 0.2,
+        shadowOpacity: 0.39,
         shadowRadius: 8.30,
 
         elevation: 13,
     },
-    title: {
-        fontWeight: 'bold'
-    },
-    subtitle: {
-
-    },
-    logo: {
-        flex: 1,
-        height: 120,
-        width: 120,
-        alignSelf: "center",
-        margin: 30
+    text: {
+        paddingLeft: 5,
+        fontSize: 15,
     }
 })

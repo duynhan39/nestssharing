@@ -29,13 +29,7 @@ export default StyleSheet.create({
     },
     roundedCornerBox: {
         flexDirection: 'row',
-        // justifyContent: 'space-between',
         padding: 15,
-        // marginTop:5,
-        // marginBottom:5,
-
-        // borderColor: '#2a4944',
-        // borderWidth: 1,
         backgroundColor: 'white',
         borderRadius: 5,
     },
@@ -45,7 +39,7 @@ export default StyleSheet.create({
             width: 0,
             height: 3,
         },
-        shadowOpacity: 0.2,
+        shadowOpacity: 0.39,
         shadowRadius: 8.30,
 
         elevation: 13,

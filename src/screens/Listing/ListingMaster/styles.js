@@ -29,9 +29,7 @@ export default StyleSheet.create({
     scrollView: {
         alignSelf: 'stretch',
         backgroundColor: 'white',
-        // backgroundColor: 'rgb(230, 230, 230)',
-
-        
+        // backgroundColor: 'rgb(230, 230, 230)',        
     },
     defaultMargin: {
         marginTop:5,
