@@ -9,7 +9,11 @@ export default function Filter(props) {
   
     return (
       <View>
-          <Text>Filter</Text>
+          <ScrollView horizontal={true}>
+
+            <Text>Filter</Text>
+            <Text>Filter</Text>
+          </ScrollView>
       </View>
     );
   }
