@@ -49,6 +49,11 @@ export default StyleSheet.create({
         paddingLeft: 30,
         paddingRight: 30,
         borderRadius: 30,
+    },
+    pickedBox: {
+        backgroundColor: 'rgb(33, 206, 153)'
+    },
+    notPickedBox: {
         backgroundColor: 'rgb(211, 211, 211)',
     },
     shadowbox: {

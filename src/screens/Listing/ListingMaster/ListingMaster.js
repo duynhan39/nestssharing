@@ -22,16 +22,12 @@ import { Filter } from '../../../components/Filter'
 
 //'../../../components/ListingDetail'
 
-function Header() {
-  const options = [
-    {"id": "1", "name": "Books"},
-    {"id": "2", "name": "Tools"},
-    {"id": "3", "name": "Skills"},
-  ]
+function Header(props) {
+  const options = props.options
 
   return (
     <View>
-      <Filter options={options}/>
+      <Filter options={options} onOptionPressed={(param) => props.onOptionPressed(param)} pickedOptions={props.pickedOptions}/>
       <Text style={[styles.defaultMargin, styles.text, styles.headlineText]}>Today's pick</Text>
     </View>
   );
@@ -40,22 +36,64 @@ function Header() {
 function ListItemDisplay(props) {
   const item = props.item
   const onPress = props.onPress
+  const options = props.options
+
   if (item.name == ' header') {
-    return <Header/>;
+    return <Header options={options} onOptionPressed={(param) => props.onOptionPressed(param)} pickedOptions={props.pickedOptions}/>;
   }
   return (
     <View>  
       <TouchableOpacity
-      onPress={() => onPress(item)}>
-      <ListingRowView listing={item}/>
+        onPress={() => onPress(item)}>
+        <ListingRowView listing={item}/>
       </TouchableOpacity>
     </View>
   );
 }
 
 function ListingContent({ navigation, route }) {
-  const {data} = route.params
-  var listings = [{'id': 'header', 'name': ' header'}].concat(data.sort((a, b) => (a.name > b.name) ? 1 : -1 ))
+  var {data} = route.params
+  var categories = [
+    {"id": "books", "name": "Books", "isPicked": false},
+    {"id": "tools", "name": "Tools", "isPicked": false},
+    {"id": "skills", "name": "Skills", "isPicked": false},
+  ]
+  
+  const [isUpdated, setUpdate] = useState(true)
+  var [pickedCategory, changeCategory] = useState(categories[0] == undefined ? {'id':"empty"} : categories[0])
+  
+  console.log("!!!!!")
+  console.log(data)
+
+  console.log("-----")
+  console.log(data['books'])
+
+
+
+  var listings = [{'id': 'header', 'name': ' header'}].concat(data[pickedCategory.id].sort((a, b) => (a.name > b.name) ? 1 : -1 ))
+
+  // pickedCategoryID = categories[0] == undefined ? null : categories[0].id
+  // if (pickedCategory != null) {
+  //   pickedCategory.isPicked = true
+  // }
+
+  const setCategory = (category) => {
+    // console.log("=======")
+    // console.log("Old")
+    // console.log(pickedCategory)
+    // // console.log(pickedCategory.isPicked)
+    // console.log("Cate")
+    // console.log(category)
+    // pickedCategoryID.isPicked = false
+    changeCategory(category)
+    // pickedCategory.isPicked = true
+    setUpdate(false)
+    // console.log("New")
+    // console.log(pickedCategory)
+  };
+  console.log(" ")
+  console.log("New category is")
+  console.log(pickedCategory)
 
   const [search, updateSearch] = useState('')
 
@@ -64,7 +102,7 @@ function ListingContent({ navigation, route }) {
   }
 
   const renderItem = ({ item }) => (
-    <ListItemDisplay item={item} onPress={onRowPressed} />
+    <ListItemDisplay item={item} onPress={onRowPressed} options={categories} onOptionPressed={(param) => setCategory(param)} pickedOptions={[pickedCategory == null ? null : pickedCategory.id]}/>
   );
 
   return (
@@ -81,15 +119,12 @@ function ListingContent({ navigation, route }) {
         />
       </View>
 
+      <FlatList style={styles.scrollView}
+        data = {listings}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+      />
 
-      <View style={styles.insideContainer}>
-        <FlatList style={styles.scrollView}
-          data = {listings}
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
-        />
-
-      </View> 
 
      
     </SafeAreaView>
